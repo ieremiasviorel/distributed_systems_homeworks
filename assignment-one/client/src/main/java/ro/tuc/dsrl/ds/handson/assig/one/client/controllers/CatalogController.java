@@ -115,8 +115,8 @@ public class CatalogController {
 				Integer studentId = Integer.parseInt(catalogView.getStudentToDeleteId());
 				StudentDeleteDTO studentDeleteDTO = new StudentDeleteDTO();
 				studentDeleteDTO.setId(studentId);
-				//String encodedRequest = RequestMessageEncoder.encode(ProtocolMethod.DELETE, "student?id=" + studentId);
-				String encodedRequest = RequestMessageEncoder.encode(ProtocolMethod.DELETE, "student", studentDeleteDTO);
+				String encodedRequest = RequestMessageEncoder.encode(ProtocolMethod.DELETE, "student",
+						studentDeleteDTO);
 				String response = serverConnection.sendRequest(encodedRequest);
 				ResponseMessage decodedResponse = ResponseMessageEncoder.decode(response);
 

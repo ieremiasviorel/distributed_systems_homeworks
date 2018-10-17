@@ -2,7 +2,7 @@ package ro.tuc.dsrl.ds.handson.assig.one.server.entities;
 
 public class StudentDeleteDTO {
 
-	private Integer id;
+	private int id;
 
 	public StudentDeleteDTO() {
 	}
@@ -11,7 +11,7 @@ public class StudentDeleteDTO {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 }

@@ -78,10 +78,10 @@ public class StudentServlet extends AbstractServlet {
 		StudentDeleteDTO studentDeleteDTO = message.getDeserializedObject(StudentDeleteDTO.class);
 		// Get from the query values the desired id
 		// String id = message.getQueryValues().get("id");
-		Integer id = studentDeleteDTO.getId();
 		// Find student in database and generate response
-		if (id != null) {
+		if (studentDeleteDTO != null) {
 			try {
+				Integer id = studentDeleteDTO.getId();
 				int noAffectedRows = studentDao.deleteStudent(id);
 
 				if (noAffectedRows == 0) {
