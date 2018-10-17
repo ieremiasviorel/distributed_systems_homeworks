@@ -16,6 +16,8 @@ public class City {
 
 	private String name;
 
+	private String country;
+
 	private Float latitude;
 
 	private Float longitude;
@@ -38,6 +40,14 @@ public class City {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
 	public Float getLatitude() {

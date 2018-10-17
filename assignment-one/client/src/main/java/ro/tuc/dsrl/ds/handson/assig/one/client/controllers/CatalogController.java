@@ -1,20 +1,23 @@
 package ro.tuc.dsrl.ds.handson.assig.one.client.controllers;
 
-import ro.tuc.dsrl.ds.handson.assig.one.client.communication.ServerConnection;
-import ro.tuc.dsrl.ds.handson.assig.one.protocol.encoders.ResponseMessageEncoder;
-import ro.tuc.dsrl.ds.handson.assig.one.client.entities.Student;
-import ro.tuc.dsrl.ds.handson.assig.one.protocol.enums.ProtocolMethod;
-import ro.tuc.dsrl.ds.handson.assig.one.protocol.encoders.RequestMessageEncoder;
-import ro.tuc.dsrl.ds.handson.assig.one.protocol.enums.StatusCode;
-import ro.tuc.dsrl.ds.handson.assig.one.protocol.message.ResponseMessage;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import ro.tuc.dsrl.ds.handson.assig.one.client.views.CatalogView;
-
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+
+import javax.swing.JOptionPane;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import ro.tuc.dsrl.ds.handson.assig.one.client.communication.ServerConnection;
+import ro.tuc.dsrl.ds.handson.assig.one.client.entities.Student;
+import ro.tuc.dsrl.ds.handson.assig.one.client.entities.StudentDeleteDTO;
+import ro.tuc.dsrl.ds.handson.assig.one.client.views.CatalogView;
+import ro.tuc.dsrl.ds.handson.assig.one.protocol.encoders.RequestMessageEncoder;
+import ro.tuc.dsrl.ds.handson.assig.one.protocol.encoders.ResponseMessageEncoder;
+import ro.tuc.dsrl.ds.handson.assig.one.protocol.enums.ProtocolMethod;
+import ro.tuc.dsrl.ds.handson.assig.one.protocol.enums.StatusCode;
+import ro.tuc.dsrl.ds.handson.assig.one.protocol.message.ResponseMessage;
 
 /**
  * @Author: Technical University of Cluj-Napoca, Romania Distributed Systems,
@@ -109,8 +112,11 @@ public class CatalogController {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			try {
-				int studentId = Integer.parseInt(catalogView.getStudentToDeleteId());
-				String encodedRequest = RequestMessageEncoder.encode(ProtocolMethod.DELETE, "student?id=" + studentId);
+				Integer studentId = Integer.parseInt(catalogView.getStudentToDeleteId());
+				StudentDeleteDTO studentDeleteDTO = new StudentDeleteDTO();
+				studentDeleteDTO.setId(studentId);
+				//String encodedRequest = RequestMessageEncoder.encode(ProtocolMethod.DELETE, "student?id=" + studentId);
+				String encodedRequest = RequestMessageEncoder.encode(ProtocolMethod.DELETE, "student", studentDeleteDTO);
 				String response = serverConnection.sendRequest(encodedRequest);
 				ResponseMessage decodedResponse = ResponseMessageEncoder.decode(response);
 
