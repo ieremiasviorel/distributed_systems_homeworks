@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>assignment_1_2</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.flight_management_system.presentation.servlets.LoginServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>LogoutServlet</servlet-name>
+		<servlet-class>com.flight_management_system.presentation.servlets.LogoutServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ClientServlet</servlet-name>
+		<servlet-class>com.flight_management_system.presentation.servlets.ClientServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>AdminServlet</servlet-name>
+		<servlet-class>com.flight_management_system.presentation.servlets.AdminServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>FlightServlet</servlet-name>
+		<servlet-class>com.flight_management_system.presentation.servlets.FlightServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>LogoutServlet</servlet-name>
+		<url-pattern>/logout</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ClientServlet</servlet-name>
+		<url-pattern>/client</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/admin</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>FlightServlet</servlet-name>
+		<url-pattern>/flights</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>LogFilter</filter-name>
+		<filter-class>com.flight_management_system.presentation.filters.LogFilter</filter-class>
+	</filter>
+	
+	<filter>
+		<filter-name>AuthorizationFilter</filter-name>
+		<filter-class>com.flight_management_system.presentation.filters.AuthorizationFilter</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>LogFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>AuthorizationFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
