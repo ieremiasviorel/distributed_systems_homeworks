@@ -28,14 +28,16 @@ CREATE TABLE `city` (
 );
 
 CREATE TABLE `flight` (
-  `id` bigint(20) NOT NULL,
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `airplane_type` varchar(255) DEFAULT NULL,
-  `arrival_time` datetime DEFAULT NULL,
-  `departure_time` datetime DEFAULT NULL,
+  `arrival_date` date DEFAULT NULL,
+  `arrival_time` time DEFAULT NULL,
+  `departure_date` date DEFAULT NULL,
+  `departure_time` time DEFAULT NULL,
   `flight_number` varchar(255) DEFAULT NULL,
   `arrival_city` bigint(20) DEFAULT NULL,
   `departure_city` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `FKdulw71h7vbb8hem870i049n73` (`arrival_city`),
-  KEY `FKr1fxubqy33rg2k0k8w4936pqx` (`departure_city`)
+  KEY `FK_o8kh1x874xk5cxxkpi4mrifq4` (`arrival_city`),
+  KEY `FK_apu61y30903hyx9d4x8vbarh0` (`departure_city`)
 );

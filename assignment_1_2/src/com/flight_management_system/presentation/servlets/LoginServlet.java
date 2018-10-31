@@ -42,13 +42,16 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("user", user.getUsername());
 			List<String> grantedAuthorities = user.getRoles().stream().map(role -> role.getName())
 					.collect(Collectors.toList());
-			session.setAttribute("user_authority", grantedAuthorities.get(0));
+			session.setAttribute("user_role", grantedAuthorities.get(0));
 			session.setMaxInactiveInterval(30 * 60);
 			if (grantedAuthorities.contains("ADMIN")) {
-				response.sendRedirect("/assignment_1_2/admin");
-			} else if (grantedAuthorities.contains("CLIENT")) {
-				response.sendRedirect("/assignment_1_2/client");
+				response.sendRedirect("/admin");
+			} else if (grantedAuthorities.contains("CLIENT")) { 
+				response.sendRedirect("/client");
 			}
+		} else {
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			response.sendRedirect("/login");
 		}
 	}
 }

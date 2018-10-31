@@ -12,43 +12,32 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class AuthorizationFilter implements Filter {
+public class ClientFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
 		HttpSession session = httpRequest.getSession();
 
-		StringBuffer url = httpRequest.getRequestURL();
-		String applicationSubDomain = url.toString().split("/")[2].toUpperCase();
-
-		String userPermission = (String) session.getAttribute("user_authority");
-
-		if (applicationSubDomain.equals("CLIENT") || applicationSubDomain.equals("ADMIN")) {
-			if (applicationSubDomain.toUpperCase().equals(userPermission)) {
+		String userRole = (String) session.getAttribute("user_role");
+		if (userRole != null)
+			if (userRole.equals("CLIENT")) {
 				chain.doFilter(request, response);
 			} else {
-				httpResponse.setStatus(HttpServletResponse.SC_FORBIDDEN);
 				httpResponse.sendRedirect("access-denied.jsp");
 			}
-		} else {
-			chain.doFilter(request, response);
+		else {
+			httpResponse.sendRedirect("/login");
 		}
 	}
 
 	@Override
 	public void destroy() {
-		// TODO Auto-generated method stub
-
 	}
-
 }

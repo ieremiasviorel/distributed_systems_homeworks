@@ -1,6 +1,7 @@
 package com.flight_management_system.business_logic.entities;
 
-import java.util.Date;
+import java.sql.Date;
+import java.sql.Time;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "flight")
@@ -28,21 +27,25 @@ public class Flight {
 	@Column(name = "airplane_type")
 	private String airplaneType;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "departure_city")
 	private City departureCity;
 
+	@Column(name = "departure_date")
+	private Date departureDate;
+	
 	@Column(name = "departure_time")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date departureTime;
+	private Time departureTime;
 
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "arrival_city")
 	private City arrivalCity;
 
+	@Column(name = "arrival_date")
+	private Date arrivalDate;
+	
 	@Column(name = "arrival_time")
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date arrivalTime;
+	private Time arrivalTime;
 
 	public Flight() {
 		super();
@@ -80,11 +83,19 @@ public class Flight {
 		this.departureCity = departureCity;
 	}
 
-	public Date getDepartureTime() {
+	public Date getDepartureDate() {
+		return departureDate;
+	}
+
+	public void setDepartureDate(Date departureDate) {
+		this.departureDate = departureDate;
+	}
+
+	public Time getDepartureTime() {
 		return departureTime;
 	}
 
-	public void setDepartureTime(Date departureTime) {
+	public void setDepartureTime(Time departureTime) {
 		this.departureTime = departureTime;
 	}
 
@@ -96,11 +107,19 @@ public class Flight {
 		this.arrivalCity = arrivalCity;
 	}
 
-	public Date getArrivalTime() {
+	public Date getArrivalDate() {
+		return arrivalDate;
+	}
+
+	public void setArrivalDate(Date arrivalDate) {
+		this.arrivalDate = arrivalDate;
+	}
+
+	public Time getArrivalTime() {
 		return arrivalTime;
 	}
 
-	public void setArrivalTime(Date arrivalTime) {
+	public void setArrivalTime(Time arrivalTime) {
 		this.arrivalTime = arrivalTime;
 	}
 }
