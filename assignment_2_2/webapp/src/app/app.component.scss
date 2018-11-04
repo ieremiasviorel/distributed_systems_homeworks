@@ -1,0 +1,71 @@
+.main-container {
+    width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.calculator-container {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.calculator-card {
+    width: 48%;
+    padding: 0;
+}
+
+.calculator-card-header {
+    padding: 10px;
+    background-color: #FAFAFA;
+    .calculator-card-header-image {
+        width: 80px;
+        height: 80px;
+        border-radius: 0;
+        background-size: cover;
+    }
+    .calculator-card-title {
+        margin: 0;
+        font-size: 36px;
+        font-weight: 600;
+        line-height: 80px;
+    }
+}
+
+#TaxCalculatorAvatarImage {
+    background-image: url('https://image.flaticon.com/icons/png/512/46/46587.png');
+}
+
+#ResalePriceCalculatorAvatarImage {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIDvGobD3pKKmsNsJAj3L-i6ovblWlgVsQ9jRba8wWhy7olG9B');
+}
+
+
+.calculator-card-content {
+    padding: 10px;
+}
+
+.calculator-input-field {
+    width: 45%;
+    height: 40px;
+    margin: 0 2.5%;
+    font-size: 30px;
+    line-height: 30px;
+}
+
+#ProductionYearInputField {
+    margin-top: 24px;
+}
+
+.calculator-card-footer {
+    margin: 0;
+    padding: 4%;
+}
+
+.calculator-button {
+    width: 120px;
+    height: 40px;
+    font-size: 20px;
+    font-weight: 400;
+}

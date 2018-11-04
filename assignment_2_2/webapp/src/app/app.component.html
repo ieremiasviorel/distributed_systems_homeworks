@@ -1,0 +1,49 @@
+<div class="main-container">
+  <div class="calculator-container">
+
+    <mat-card class="calculator-card">
+      <mat-card-header class="calculator-card-header">
+        <div mat-card-avatar class="calculator-card-header-image" id="TaxCalculatorAvatarImage"></div>
+        <mat-card-title class="calculator-card-title">Tax Calculator</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="calculator-card-content">
+        <form [formGroup]="taxValueCalculatorForm">
+          <mat-form-field class="calculator-input-field">
+            <input matInput formControlName="engineSize" placeholder="Engine size">
+          </mat-form-field>
+          <mat-form-field class="calculator-input-field">
+            <input formControlName="taxValue" matInput placeholder="Tax value">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-footer class="calculator-card-footer">
+        <button mat-raised-button color="primary" class="calculator-button" (click)="computeTaxValue()">Compute</button>
+      </mat-card-footer>
+    </mat-card>
+
+    <mat-card class="calculator-card">
+      <mat-card-header class="calculator-card-header">
+        <div mat-card-avatar class="calculator-card-header-image" id="ResalePriceCalculatorAvatarImage"></div>
+        <mat-card-title class="calculator-card-title">Resale Price Calculator</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="calculator-card-content">
+        <form [formGroup]="resalePriceCalculatorForm">
+          <mat-form-field class="calculator-input-field">
+            <input matInput formControlName="purchasePrice" placeholder="Purchase price">
+          </mat-form-field>
+          <mat-form-field class="calculator-input-field">
+            <input matInput formControlName="resalePrice" placeholder="Resale price">
+          </mat-form-field>
+          <br>
+          <mat-form-field class="calculator-input-field" id="ProductionYearInputField">
+            <input matInput formControlName="productionYear" placeholder="Production year">
+          </mat-form-field>
+        </form>
+      </mat-card-content>
+      <mat-card-footer class="calculator-card-footer">
+        <button mat-raised-button color="primary" class="calculator-button" (click)="computeResalePrice()">Compute</button>
+      </mat-card-footer>
+    </mat-card>
+
+  </div>
+</div>
