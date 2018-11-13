@@ -41,19 +41,25 @@ export class AppComponent implements OnInit {
   }
 
   computeTaxValue(): void {
-    let engineSize = this.taxValueCalculatorForm.value['engineSize'];
-    this.taxValueService.computeTaxValue(engineSize)
-      .subscribe(
-        (taxValue: number) => { this.taxValueCalculatorForm.get('taxValue').patchValue(new Number(taxValue).toFixed(2)); }
-      )
+    if (this.taxValueCalculatorForm.valid) {
+      let engineSize = this.taxValueCalculatorForm.value['engineSize'];
+      this.taxValueService.computeTaxValue(engineSize)
+        .subscribe(
+          (taxValue: number) => { this.taxValueCalculatorForm.get('taxValue').patchValue(new Number(taxValue).toFixed(2)); }
+        )
+    }
+    this.taxValueCalculatorForm.controls['taxValue'].reset();
   }
 
   computeResalePrice(): void {
-    let purchasePrice = this.resalePriceCalculatorForm.value['purchasePrice'];
-    let productionYear = this.resalePriceCalculatorForm.value['productionYear'];
-    this.resalePriceService.computeResalePrice(purchasePrice, productionYear)
-      .subscribe(
-        (resalePrice: number) => { this.resalePriceCalculatorForm.get('resalePrice').patchValue(new Number(resalePrice).toFixed(2)); }
-      )
+    if (this.resalePriceCalculatorForm.valid) {
+      let purchasePrice = this.resalePriceCalculatorForm.value['purchasePrice'];
+      let productionYear = this.resalePriceCalculatorForm.value['productionYear'];
+      this.resalePriceService.computeResalePrice(purchasePrice, productionYear)
+        .subscribe(
+          (resalePrice: number) => { this.resalePriceCalculatorForm.get('resalePrice').patchValue(new Number(resalePrice).toFixed(2)); }
+        )
+    }
+    this.resalePriceCalculatorForm.controls['resalePrice'].reset();
   }
 }
