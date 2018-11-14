@@ -30,8 +30,8 @@ public class ClientStart {
 		try {
 			taxService = Naming.lookup(ITaxService.class, ServerConnection.getInstance());
 
+			System.out.println("Tax value: " + taxService.computeTax(new Car(2009, 500)));
 			System.out.println("Tax value: " + taxService.computeTax(new Car(2009, 2000)));
-			System.out.println("Tax value: " + taxService.computeTax(new Car(2009, 100)));
 
 			priceService = Naming.lookup(IPriceService.class, ServerConnection.getInstance());
 			
