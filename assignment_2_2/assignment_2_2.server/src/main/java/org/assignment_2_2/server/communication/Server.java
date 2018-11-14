@@ -13,7 +13,6 @@ public class Server {
 
 	public static void main(String args[]) {
 		try {
-			// Registry registry = LocateRegistry.getRegistry();
 
 			TaxServiceImpl taxServiceObj = new TaxServiceImpl();
 			PriceServiceImpl priceServiceObj = new PriceServiceImpl();
@@ -25,7 +24,7 @@ public class Server {
 			registry.bind("taxService", taxServiceStub);
 			registry.bind("priceService", priceServiceStub);
 
-			System.err.println("Server ready");
+			System.out.println("Server ready");
 		} catch (Exception e) {
 			System.err.println("Server exception: " + e.toString());
 			e.printStackTrace();
