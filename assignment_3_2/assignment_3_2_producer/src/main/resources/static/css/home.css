@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Poppins');
+
+body {
+	font-family: 'Poppins', sans-serif;
+	text-align: center;
+}
+
+.container {
+	width: 1200px;
+	margin: 50px auto;
+}
+
+form {
+	display: inline-block;
+	margin-bottom: 20px auto;
+}
+
+.form-group {
+	float: left;
+}
+
+button {
+	float: left;
+	margin-left: 20px;
+}
+
+.card-box {
+	position: relative;
+	display: inline-block;
+	width: 23%;
+	min-height: 300px;
+	border-top: 2px solid #2196F3;
+	margin: 20px 1%;
+	padding: 30px;
+	background: #FAFAFA;
+	cursor: pointer;
+}
+
+.card-box:hover {
+	background: linear-gradient(to right, #1fa2ff17 0%, #12d8fa2b 51%, #1fa2ff36 100%);
+}
+
+.card-title h2 {
+	margin: 0;
+	padding-top: 5%;
+	color: #2196F3;
+	font-family: 'Oswald', sans-serif;
+	text-transform: uppercase;
+	font-size: 24px;
+	line-height: 1;
+	margin-bottom: 15px;
+}
+
+.card-title {
+	margin: 0;
+	margin-bottom: 10px;
+	font-size: 16px;
+}
+
+.card-link {
+	position: absolute;
+	bottom: 10px;
+	right: 30px;
+	text-decoration: none;
+	font-family: 'Oswald', sans-serif;
+	color: #FF5722;
+	font-size: 18px;
+}

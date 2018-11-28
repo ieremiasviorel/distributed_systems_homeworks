@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<persistence-unit name="JavaHelps"
+		transaction-type="RESOURCE_LOCAL">
+		<!-- Persistence provider -->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<!-- Entity classes -->
+		<class>org.assignment_3_2_common_classes.entity.DVD</class>
+		<class>org.assignment_3_2_common_classes.entity.NewsletterSubscription</class>
+
+		<properties>
+			<!-- The JDBC URL to the database instance -->
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:postgresql://localhost:5432/dvd_service" />
+
+			<!-- The database username -->
+			<property name="javax.persistence.jdbc.user" value="postgres" />
+
+			<!-- The database password -->
+			<property name="javax.persistence.jdbc.password" value="postgres" />
+
+			<property name="hibernate.hbm2ddl.auto" value="validate" />
+		</properties>
+	</persistence-unit>
+</persistence>

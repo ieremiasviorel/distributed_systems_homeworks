@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Movie Box :: Add DVD</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/add_dvd.css" />
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<form th:action="@{/admin/save-dvd}" method="post">
+			<div class="form-group">
+				<label for="title">Title</label>
+				<input type="text" id="title" th:name="title" class="form-control" aria-describedby="titleHelp" placeholder="enter title">
+				<small id="titleHelp" class="form-text text-muted">Movie title</small>
+			</div>
+			<div class="form-group">
+				<label for="year">Year</label>
+				<input type="text" id="year" th:name="year" class="form-control" aria-describedby="yearHelp" placeholder="enter year">
+				<small id="yearHelp" class="form-text text-muted">Movie launch year</small>
+			</div>
+			<div class="form-group">
+				<label for="price">Price</label>
+				<input type="text" id="price" th:name="price" class="form-control" aria-describedby="priceHelp" placeholder="enter price">
+				<small id="priceHelp" class="form-text text-muted">DVD price</small>
+			</div>
+			<button type="submit" class="btn btn-primary">Save</button>
+		</form>
+	</div>
+</body>
+</html>
