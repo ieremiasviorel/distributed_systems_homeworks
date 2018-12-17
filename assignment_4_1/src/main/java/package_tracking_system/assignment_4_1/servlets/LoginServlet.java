@@ -1,0 +1,71 @@
+package package_tracking_system.assignment_4_1.servlets;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import package_tracking_system.assignment_4_1.models.User;
+import package_tracking_system.assignment_4_1.services.UserService;
+import package_tracking_system.assignment_4_1.services.impl.UserServiceImpl;
+
+@WebServlet("/")
+//@ServletSecurity(value = @HttpConstraint(rolesAllowed = { "CLIENT", "ADMIN" }), httpMethodConstraints = {
+//		@HttpMethodConstraint(value = "GET", rolesAllowed = { "CLIENT", "ADMIN" }) })
+public class LoginServlet extends HttpServlet {
+
+	private static final long serialVersionUID = 2094807164771303725L;
+
+	private UserService userService;
+	
+	@Override
+	public void init() {
+		this.userService = new UserServiceImpl();
+	}
+	
+//	@Override
+//	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		if (request.isUserInRole("ADMIN"))
+//			response.sendRedirect("admin");
+//		else if (request.isUserInRole("CLIENT"))
+//			response.sendRedirect("client");
+//	}
+	
+	@Override
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
+		rd.forward(request, response);
+	}
+
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+
+		User user = userService.login(username, password);
+		if (user != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user.getUsername());
+			List<String> grantedAuthorities = user.getRoles().stream().map(role -> role.getName())
+					.collect(Collectors.toList());
+			session.setAttribute("username", user.getUsername());
+			session.setAttribute("user_role", grantedAuthorities.get(0));
+			session.setMaxInactiveInterval(30 * 60);
+			if (grantedAuthorities.contains("ADMIN")) {
+				response.sendRedirect("/assignment_4_1/admin");
+			} else if (grantedAuthorities.contains("CLIENT")) { 
+				response.sendRedirect("/assignment_4_1/client");
+			}
+		} else {
+			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+			response.sendRedirect("/login");
+		}
+	}
+}
