@@ -1,21 +1,18 @@
 package package_tracking_system.assignment_4_1.models;
 
 import java.io.Serializable;
-import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "users")
+@XmlRootElement
 public class User implements Serializable {
 
 	private static final long serialVersionUID = 6239467396498886238L;
@@ -33,9 +30,8 @@ public class User implements Serializable {
 	@Column(name = "full_name")
 	private String fullName;
 
-	@ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE }, fetch = FetchType.EAGER)
-	@JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-	private Set<Role> roles;
+	@OneToOne
+	private Role role;
 
 	public User() {
 		super();
@@ -48,12 +44,12 @@ public class User implements Serializable {
 		this.fullName = fullName;
 	}
 
-	public User(String username, String password, String fullName, Set<Role> roles) {
+	public User(String username, String password, String fullName, Role role) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.fullName = fullName;
-		this.roles = roles;
+		this.role = role;
 	}
 
 	public Integer getId() {
@@ -80,12 +76,12 @@ public class User implements Serializable {
 		this.password = password;
 	}
 
-	public Set<Role> getRoles() {
-		return roles;
+	public Role getRole() {
+		return role;
 	}
 
-	public void setRoles(Set<Role> roles) {
-		this.roles = roles;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	public String getFullName() {

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ParcelWSImplService WSDL service -->
+
+  <service name="ParcelWSImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://impl.web_services.assignment_4_2.package_tracking_system"/>
+      <parameter name="wsdlServiceElement" value="ParcelWSImplService"/>
+      <parameter name="schemaQualified" value="http://impl.web_services.assignment_4_2.package_tracking_system,http://models.assignment_4_2.package_tracking_system"/>
+      <parameter name="wsdlServicePort" value="ParcelWSImpl"/>
+      <parameter name="className" value="package_tracking_system.assignment_4_2.web_services.impl.ParcelWSImpl"/>
+      <parameter name="wsdlPortType" value="ParcelWSImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://impl.web_services.assignment_4_2.package_tracking_system" name="addParcel" qname="operNS:addParcel" soapAction="">
+        <parameter xmlns:pns="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:tns="http://models.assignment_4_2.package_tracking_system" qname="pns:p" type="tns:Parcel"/>
+      </operation>
+      <operation xmlns:operNS="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:retNS="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:rtns="http://models.assignment_4_2.package_tracking_system" name="getParcels" qname="operNS:getParcels" returnQName="retNS:getParcelsReturn" returnType="rtns:Parcel" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:retNS="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:rtns="http://models.assignment_4_2.package_tracking_system" name="getParcel" qname="operNS:getParcel" returnQName="retNS:getParcelReturn" returnType="rtns:Parcel" soapAction="">
+        <parameter xmlns:pns="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="getParcels addParcel getParcel"/>
+
+      <typeMapping xmlns:ns="http://models.assignment_4_2.package_tracking_system" qname="ns:Delivery" type="java:package_tracking_system.assignment_4_2.models.Delivery" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://models.assignment_4_2.package_tracking_system" qname="ns:Role" type="java:package_tracking_system.assignment_4_2.models.Role" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://models.assignment_4_2.package_tracking_system" qname="ns:City" type="java:package_tracking_system.assignment_4_2.models.City" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://models.assignment_4_2.package_tracking_system" qname="ns:Parcel" type="java:package_tracking_system.assignment_4_2.models.Parcel" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://models.assignment_4_2.package_tracking_system" qname="ns:User" type="java:package_tracking_system.assignment_4_2.models.User" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

@@ -4,38 +4,39 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="WebApp_ID" version="3.0">
 	<display-name>assignment_4_1</display-name>
-	
-<!-- 	<login-config> -->
-<!--         <auth-method>FORM</auth-method> -->
-<!--         <realm-name>default</realm-name> -->
-<!--         <form-login-config> -->
-<!--             <form-login-page> -->
-<!--                 /login.jsp -->
-<!--             </form-login-page> -->
-<!--             <form-error-page> -->
-<!--                 /login.jsp -->
-<!--             </form-error-page> -->
-<!--         </form-login-config> -->
-<!--     </login-config> -->
-    
-<!--     <listener> -->
-<!--         <listener-class> -->
-<!--             com.sun.xml.ws.transport.http.servlet.WSServletContextListener</listener-class> -->
-<!--     </listener> -->
-    
-<!--     <servlet> -->
-<!--         <servlet-name>JAXWSServlet</servlet-name> -->
-<!--         <servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class> -->
-<!--         <load-on-startup>1</load-on-startup> -->
-<!--     </servlet> -->
-    
-<!--     <servlet-mapping> -->
-<!--         <servlet-name>JAXWSServlet</servlet-name> -->
-<!--         <url-pattern>/</url-pattern> -->
-<!--     </servlet-mapping> -->
-    
-<!--     <session-config> -->
-<!--         <session-timeout>30</session-timeout> -->
-<!--     </session-config> -->
-    
+
+	<!-- <login-config> -->
+	<!-- <auth-method>FORM</auth-method> -->
+	<!-- <realm-name>default</realm-name> -->
+	<!-- <form-login-config> -->
+	<!-- <form-login-page> -->
+	<!-- /login.jsp -->
+	<!-- </form-login-page> -->
+	<!-- <form-error-page> -->
+	<!-- /login.jsp -->
+	<!-- </form-error-page> -->
+	<!-- </form-login-config> -->
+	<!-- </login-config> -->
+
+<!-- 	<listener> -->
+<!-- 		<listener-class> -->
+<!-- 			com.sun.xml.ws.transport.http.servlet.WSServletContextListener -->
+<!-- 		</listener-class> -->
+<!-- 	</listener> -->
+
+<!-- 	<servlet> -->
+<!-- 		<servlet-name>JAXWSServlet</servlet-name> -->
+<!-- 		<servlet-class>com.sun.xml.ws.transport.http.servlet.WSServlet</servlet-class> -->
+<!-- 		<load-on-startup>1</load-on-startup> -->
+<!-- 	</servlet> -->
+
+<!-- 	<servlet-mapping> -->
+<!-- 		<servlet-name>JAXWSServlet</servlet-name> -->
+<!-- 		<url-pattern>/cityWS</url-pattern> -->
+<!-- 	</servlet-mapping> -->
+
+<!-- 	<session-config> -->
+<!-- 		<session-timeout>30</session-timeout> -->
+<!-- 	</session-config> -->
+
 </web-app>

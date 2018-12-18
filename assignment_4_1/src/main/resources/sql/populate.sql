@@ -1,13 +1,9 @@
 INSERT INTO "roles" ("id", "name") VALUES (1, 'CLIENT');
 INSERT INTO "roles" ("id", "name") VALUES (2, 'ADMIN');
 
-INSERT INTO "users" ("id", "username", "password", "full_name") VALUES (1, 'client', 'pass', 'CLIENT_USER');
-INSERT INTO "users" ("id", "username", "password", "full_name") VALUES (2, 'admin', 'pass', 'ADMIN_USER');
-INSERT INTO "users" ("id", "username", "password", "full_name") VALUES (3, 'test', 'pass', 'TEST_USER');
-
-INSERT INTO "users_roles" ("user_id", "role_id") VALUES (1, 1);
-INSERT INTO "users_roles" ("user_id", "role_id") VALUES (2, 2);
-INSERT INTO "users_roles" ("user_id", "role_id") VALUES (3, 1);
+INSERT INTO "users" ("id", "username", "password", "full_name", "role_id") VALUES (1, 'client', 'pass', 'CLIENT_USER', 1);
+INSERT INTO "users" ("id", "username", "password", "full_name", "role_id") VALUES (2, 'admin', 'pass', 'ADMIN_USER', 2);
+INSERT INTO "users" ("id", "username", "password", "full_name", "role_id") VALUES (3, 'test', 'pass', 'TEST_USER', 1);
 
 INSERT INTO "cities" ("id", "name") VALUES (1, 'Cluj-Napoca');
 INSERT INTO "cities" ("id", "name") VALUES (2, 'Brasov');

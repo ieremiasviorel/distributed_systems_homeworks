@@ -2,7 +2,7 @@
 <!DOCTYPE xml>
 <endpoints
 	xmlns="http://java.sun.com/xml/ns/jax-ws/ri/runtime" version="2.0">
-	<endpoint name="CityWSImpl"
-		implementation="package_tracking_system.assignment_4_1.web_services.CityWSImpl"
-		url-pattern="/cityWS" />
+<!-- 	<endpoint name="CityWSImpl" -->
+<!-- 		implementation="package_tracking_system.assignment_4_1.web_services.impl.CityWSImpl" -->
+<!-- 		url-pattern="/cityWS" /> -->
 </endpoints>

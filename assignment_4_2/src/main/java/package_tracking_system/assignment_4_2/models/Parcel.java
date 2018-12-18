@@ -1,4 +1,4 @@
-package package_tracking_system.assignment_4_1.models;
+package package_tracking_system.assignment_4_2.models;
 
 import java.io.Serializable;
 
@@ -9,10 +9,12 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-@Table(name = "packages")
-public class Package implements Serializable {
+@Table(name = "parcels")
+@XmlRootElement
+public class Parcel implements Serializable {
 
 	private static final long serialVersionUID = 4466013202948835457L;
 
@@ -35,11 +37,11 @@ public class Package implements Serializable {
 	@OneToOne
 	private Delivery delivery;
 
-	public Package() {
+	public Parcel() {
 		super();
 	}
 
-	public Package(String name, String description, User sender, User receiver) {
+	public Parcel(String name, String description, User sender, User receiver) {
 		super();
 		this.name = name;
 		this.description = description;

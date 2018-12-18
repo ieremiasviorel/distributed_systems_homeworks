@@ -7,9 +7,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @Table(name = "roles")
+@XmlRootElement
 public class Role implements Serializable {
 
 	private static final long serialVersionUID = 7347845076161413326L;

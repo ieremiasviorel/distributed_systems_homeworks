@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:intf="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:tns1="http://models.assignment_4_2.package_tracking_system" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://models.assignment_4_2.package_tracking_system"/>
+   <element name="addParcel">
+    <complexType>
+     <sequence>
+      <element name="p" type="tns1:Parcel"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addParcelResponse">
+    <complexType/>
+   </element>
+   <element name="getParcels">
+    <complexType/>
+   </element>
+   <element name="getParcelsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getParcelsReturn" type="tns1:Parcel"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getParcel">
+    <complexType>
+     <sequence>
+      <element name="id" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getParcelResponse">
+    <complexType>
+     <sequence>
+      <element name="getParcelReturn" type="tns1:Parcel"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://models.assignment_4_2.package_tracking_system" xmlns="http://www.w3.org/2001/XMLSchema">
+   <complexType name="City">
+    <sequence>
+     <element name="id" nillable="true" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Delivery">
+    <sequence>
+     <element name="destinationCity" nillable="true" type="tns1:City"/>
+     <element name="id" nillable="true" type="xsd:int"/>
+     <element name="originCity" nillable="true" type="tns1:City"/>
+     <element name="route" nillable="true" type="xsd:string"/>
+     <element name="tracked" nillable="true" type="xsd:boolean"/>
+    </sequence>
+   </complexType>
+   <complexType name="Role">
+    <sequence>
+     <element name="id" nillable="true" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="User">
+    <sequence>
+     <element name="fullName" nillable="true" type="xsd:string"/>
+     <element name="id" nillable="true" type="xsd:int"/>
+     <element name="password" nillable="true" type="xsd:string"/>
+     <element name="role" nillable="true" type="tns1:Role"/>
+     <element name="username" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="Parcel">
+    <sequence>
+     <element name="delivery" nillable="true" type="tns1:Delivery"/>
+     <element name="description" nillable="true" type="xsd:string"/>
+     <element name="id" nillable="true" type="xsd:int"/>
+     <element name="name" nillable="true" type="xsd:string"/>
+     <element name="receiver" nillable="true" type="tns1:User"/>
+     <element name="sender" nillable="true" type="tns1:User"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="addParcelRequest">
+
+      <wsdl:part element="impl:addParcel" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getParcelRequest">
+
+      <wsdl:part element="impl:getParcel" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getParcelsRequest">
+
+      <wsdl:part element="impl:getParcels" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addParcelResponse">
+
+      <wsdl:part element="impl:addParcelResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getParcelsResponse">
+
+      <wsdl:part element="impl:getParcelsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getParcelResponse">
+
+      <wsdl:part element="impl:getParcelResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ParcelWSImpl">
+
+      <wsdl:operation name="addParcel">
+
+         <wsdl:input message="impl:addParcelRequest" name="addParcelRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addParcelResponse" name="addParcelResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getParcels">
+
+         <wsdl:input message="impl:getParcelsRequest" name="getParcelsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getParcelsResponse" name="getParcelsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getParcel">
+
+         <wsdl:input message="impl:getParcelRequest" name="getParcelRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getParcelResponse" name="getParcelResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ParcelWSImplSoapBinding" type="impl:ParcelWSImpl">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addParcel">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addParcelRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addParcelResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getParcels">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getParcelsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getParcelsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getParcel">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getParcelRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getParcelResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ParcelWSImplService">
+
+      <wsdl:port binding="impl:ParcelWSImplSoapBinding" name="ParcelWSImpl">
+
+         <wsdlsoap:address location="http://localhost:8080/assignment_4_2/services/ParcelWSImpl"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

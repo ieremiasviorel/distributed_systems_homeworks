@@ -1,8 +1,6 @@
 package package_tracking_system.assignment_4_1.servlets;
 
 import java.io.IOException;
-import java.util.List;
-import java.util.stream.Collectors;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import package_tracking_system.assignment_4_1.models.Role;
 import package_tracking_system.assignment_4_1.models.User;
 import package_tracking_system.assignment_4_1.services.UserService;
 import package_tracking_system.assignment_4_1.services.impl.UserServiceImpl;
@@ -53,14 +52,13 @@ public class LoginServlet extends HttpServlet {
 		if (user != null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user.getUsername());
-			List<String> grantedAuthorities = user.getRoles().stream().map(role -> role.getName())
-					.collect(Collectors.toList());
+			Role grantedAuthority = user.getRole();
 			session.setAttribute("username", user.getUsername());
-			session.setAttribute("user_role", grantedAuthorities.get(0));
+			session.setAttribute("user_role", grantedAuthority);
 			session.setMaxInactiveInterval(30 * 60);
-			if (grantedAuthorities.contains("ADMIN")) {
+			if (grantedAuthority.getName().equals("ADMIN")) {
 				response.sendRedirect("/assignment_4_1/admin");
-			} else if (grantedAuthorities.contains("CLIENT")) { 
+			} else if (grantedAuthority.getName().equals("CLIENT")) { 
 				response.sendRedirect("/assignment_4_1/client");
 			}
 		} else {

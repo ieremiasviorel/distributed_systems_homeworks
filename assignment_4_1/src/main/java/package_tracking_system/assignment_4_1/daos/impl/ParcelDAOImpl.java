@@ -6,17 +6,17 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
 
-import package_tracking_system.assignment_4_1.daos.PackageDAO;
+import package_tracking_system.assignment_4_1.daos.ParcelDAO;
 import package_tracking_system.assignment_4_1.daos.config.EntityManagerProvider;
-import package_tracking_system.assignment_4_1.models.Package;
+import package_tracking_system.assignment_4_1.models.Parcel;
 import package_tracking_system.assignment_4_1.models.User;
 
-public class PackageDAOImpl implements PackageDAO {
+public class ParcelDAOImpl implements ParcelDAO {
 
 	private EntityManagerFactory emf = EntityManagerProvider.getInstance();
 
 	@Override
-	public void save(Package _package) {
+	public void save(Parcel _package) {
 		EntityManager em = emf.createEntityManager();
 
 		em.persist(_package);
@@ -25,10 +25,10 @@ public class PackageDAOImpl implements PackageDAO {
 	}
 
 	@Override
-	public Package find(Integer id) {
+	public Parcel find(Integer id) {
 		EntityManager em = emf.createEntityManager();
 
-		Package _package = em.find(Package.class, id);
+		Parcel _package = em.find(Parcel.class, id);
 		em.close();
 
 		return _package;
@@ -36,13 +36,13 @@ public class PackageDAOImpl implements PackageDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Package> find(String name) {
+	public List<Parcel> find(String name) {
 		EntityManager em = emf.createEntityManager();
 
-		Query query = em.createQuery("SELECT p FROM Pckage p WHERE p.name = :name");
+		Query query = em.createQuery("SELECT p FROM Parcel p WHERE p.name = :name");
 		query.setParameter("name", name);
 
-		List<Package> packages = query.getResultList();
+		List<Parcel> packages = query.getResultList();
 		em.close();
 
 		return packages;
@@ -50,10 +50,10 @@ public class PackageDAOImpl implements PackageDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Package> findBySender(User sender) {
+	public List<Parcel> findBySender(User sender) {
 		EntityManager em = emf.createEntityManager();
 
-		Query query = em.createQuery("SELECT p FROM Package p WHERE p.sender = :sender");
+		Query query = em.createQuery("SELECT p FROM Parcel p WHERE p.sender = :sender");
 		query.setParameter("sender", sender);
 
 		return query.getResultList();
@@ -61,10 +61,10 @@ public class PackageDAOImpl implements PackageDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Package> findByReceiver(User receiver) {
+	public List<Parcel> findByReceiver(User receiver) {
 		EntityManager em = emf.createEntityManager();
 
-		Query query = em.createQuery("SELECT p FROM Package p WHERE p.receiver = :receiver");
+		Query query = em.createQuery("SELECT p FROM Parcel p WHERE p.receiver = :receiver");
 		query.setParameter("receiver", receiver);
 
 		return query.getResultList();
@@ -72,10 +72,10 @@ public class PackageDAOImpl implements PackageDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Package> findAll() {
+	public List<Parcel> findAll() {
 		EntityManager em = emf.createEntityManager();
 
-		Query query = em.createNativeQuery("SELECT * FROM Package p", Package.class);
+		Query query = em.createQuery("SELECT p FROM Parcel p");
 
 		return query.getResultList();
 	}

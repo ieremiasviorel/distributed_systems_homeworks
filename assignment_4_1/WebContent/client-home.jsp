@@ -10,7 +10,7 @@
 <!-- <script src="js/client-home.js" type="text/javascript"></script> -->
 <link rel="stylesheet" type="text/css" href="css/client-home.css">
 
-<title>Flight Management System :: Home</title>
+<title>Package Tracking System :: Home</title>
 </head>
 <body>
 

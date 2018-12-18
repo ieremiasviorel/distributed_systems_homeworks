@@ -10,11 +10,38 @@
 <!-- <script src="js/admin-home.js" type="text/javascript"></script> -->
 <!-- <link rel="stylesheet" href="css/admin-home.css" type="text/css"> -->
 
-<title>Flight Management System :: Home</title>
+<title>Package Tracking System :: Home</title>
 </head>
 <body>
 
 	Welcome ADMIN!
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>Sender</th>
+				<th>Receiver</th>
+				<th>From</th>
+				<th>To</th>
+				<th>Tracked</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${allParcels}" var="parcel">
+				<tr>
+					<td>${parcel.name}</td>
+					<td>${parcel.description}</td>
+					<td>${parcel.sender.fullName}</td>
+					<td>${parcel.receiver.fullName}</td>
+					<td>${parcel.delivery.originCity.name}</td>
+					<td>${parcel.delivery.destinationCity.name}</td>
+					<td>${parcel.delivery.tracked}</td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 
 </body>
 </html>

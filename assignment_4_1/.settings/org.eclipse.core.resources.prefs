@@ -1,5 +1,14 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
+encoding//src/main/java/package_tracking_system/assignment_4_2/models/City.java=UTF-8
+encoding//src/main/java/package_tracking_system/assignment_4_2/models/Delivery.java=UTF-8
+encoding//src/main/java/package_tracking_system/assignment_4_2/models/Parcel.java=UTF-8
+encoding//src/main/java/package_tracking_system/assignment_4_2/models/Role.java=UTF-8
+encoding//src/main/java/package_tracking_system/assignment_4_2/models/User.java=UTF-8
+encoding//src/main/java/package_tracking_system/assignment_4_2/web_services/impl/ParcelWSImpl.java=UTF-8
+encoding//src/main/java/package_tracking_system/assignment_4_2/web_services/impl/ParcelWSImplService.java=UTF-8
+encoding//src/main/java/package_tracking_system/assignment_4_2/web_services/impl/ParcelWSImplServiceLocator.java=UTF-8
+encoding//src/main/java/package_tracking_system/assignment_4_2/web_services/impl/ParcelWSImplSoapBindingStub.java=UTF-8
 encoding//src/main/resources=UTF-8
 encoding//src/test/java=UTF-8
 encoding/<project>=UTF-8
