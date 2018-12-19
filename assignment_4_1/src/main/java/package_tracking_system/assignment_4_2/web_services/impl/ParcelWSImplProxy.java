@@ -44,22 +44,28 @@ public class ParcelWSImplProxy implements package_tracking_system.assignment_4_2
     return parcelWSImpl;
   }
   
-  public void addParcel(package_tracking_system.assignment_4_2.models.Parcel p) throws java.rmi.RemoteException{
+  public void saveParcel(package_tracking_system.assignment_4_2.models.Parcel p) throws java.rmi.RemoteException{
     if (parcelWSImpl == null)
       _initParcelWSImplProxy();
-    parcelWSImpl.addParcel(p);
+    parcelWSImpl.saveParcel(p);
   }
   
-  public package_tracking_system.assignment_4_2.models.Parcel[] getParcels() throws java.rmi.RemoteException{
+  public void addParcel(java.lang.String name, java.lang.String description, java.lang.String senderName, java.lang.String receiverName, java.lang.String senderCity, java.lang.String receiverCity) throws java.rmi.RemoteException{
     if (parcelWSImpl == null)
       _initParcelWSImplProxy();
-    return parcelWSImpl.getParcels();
+    parcelWSImpl.addParcel(name, description, senderName, receiverName, senderCity, receiverCity);
   }
   
   public package_tracking_system.assignment_4_2.models.Parcel getParcel(int id) throws java.rmi.RemoteException{
     if (parcelWSImpl == null)
       _initParcelWSImplProxy();
     return parcelWSImpl.getParcel(id);
+  }
+  
+  public package_tracking_system.assignment_4_2.models.Parcel[] getParcels() throws java.rmi.RemoteException{
+    if (parcelWSImpl == null)
+      _initParcelWSImplProxy();
+    return parcelWSImpl.getParcels();
   }
   
   

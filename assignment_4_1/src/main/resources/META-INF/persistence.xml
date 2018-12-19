@@ -11,11 +11,6 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
 		<!-- Entity classes -->
-		<class>package_tracking_system.assignment_4_1.models.City</class>
-		<class>package_tracking_system.assignment_4_1.models.Delivery</class>
-		<class>package_tracking_system.assignment_4_1.models.Parcel</class>
-		<class>package_tracking_system.assignment_4_1.models.Role</class>
-		<class>package_tracking_system.assignment_4_1.models.User</class>
 
 		<properties>
 

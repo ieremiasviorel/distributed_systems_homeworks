@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
@@ -22,8 +23,13 @@ public class UserDAOImpl implements UserDAO {
 	public void save(User user) {
 		EntityManager em = emf.createEntityManager();
 
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		
+		em.merge(user.getRole());
 		em.persist(user);
-
+		
+		tx.commit();
 		em.close();
 	}
 

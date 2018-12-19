@@ -12,13 +12,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import package_tracking_system.assignment_4_1.models.Parcel;
 import package_tracking_system.assignment_4_1.services.ParcelService;
 import package_tracking_system.assignment_4_1.services.impl.ParcelServiceImpl;
-import package_tracking_system.assignment_4_1.models.Parcel;
 
 @WebServlet("/client")
 //@ServletSecurity(value = @HttpConstraint(rolesAllowed = { "CLIENT" }))
-public class ClientServlet extends HttpServlet {
+public class ClientHomeServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 5575507490396958636L;
 

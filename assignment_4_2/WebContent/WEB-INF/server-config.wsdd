@@ -7,8 +7,8 @@
   <ns1:parameter name="dotNetSoapEncFix" value="true"/>
   <ns1:parameter name="enableNamespacePrefixOptimization" value="false"/>
   <ns1:parameter name="sendXMLDeclaration" value="true"/>
-  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:parameter name="attachments.implementation" value="org.apache.axis.attachments.AttachmentsImpl"/>
+  <ns1:parameter name="sendXsiTypes" value="true"/>
   <ns1:requestFlow>
    <ns1:handler type="java:org.apache.axis.handlers.JWSHandler">
     <ns1:parameter name="scope" value="session"/>
@@ -33,14 +33,22 @@
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
  <ns1:service name="ParcelWSImpl" provider="java:RPC" style="wrapped" use="literal">
-  <ns2:operation name="addParcel" qname="ns1:addParcel" soapAction="" xmlns:ns1="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+  <ns2:operation name="saveParcel" qname="ns1:saveParcel" soapAction="" xmlns:ns1="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
    <ns3:parameter qname="ns1:p" type="ns2:Parcel" xmlns:ns2="http://models.assignment_4_2.package_tracking_system" xmlns:ns3="http://xml.apache.org/axis/wsdd/"/>
   </ns2:operation>
-  <ns1:operation name="getParcels" qname="ns3:getParcels" returnQName="ns3:getParcelsReturn" returnType="ns4:Parcel" soapAction="" xmlns:ns3="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:ns4="http://models.assignment_4_2.package_tracking_system"/>
-  <ns1:operation name="getParcel" qname="ns5:getParcel" returnQName="ns5:getParcelReturn" returnType="ns6:Parcel" soapAction="" xmlns:ns5="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:ns6="http://models.assignment_4_2.package_tracking_system">
-   <ns1:parameter qname="ns5:id" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="addParcel" qname="ns3:addParcel" soapAction="" xmlns:ns3="http://impl.web_services.assignment_4_2.package_tracking_system">
+   <ns1:parameter qname="ns3:name" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns3:description" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns3:senderName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns3:receiverName" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns3:senderCity" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+   <ns1:parameter qname="ns3:receiverCity" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
   </ns1:operation>
-  <ns1:parameter name="allowedMethods" value="getParcels addParcel getParcel"/>
+  <ns1:operation name="getParcel" qname="ns4:getParcel" returnQName="ns4:getParcelReturn" returnType="ns5:Parcel" soapAction="" xmlns:ns4="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:ns5="http://models.assignment_4_2.package_tracking_system">
+   <ns1:parameter qname="ns4:id" type="xsd:int" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  </ns1:operation>
+  <ns1:operation name="getParcels" qname="ns6:getParcels" returnQName="ns6:getParcelsReturn" returnType="ns7:Parcel" soapAction="" xmlns:ns6="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:ns7="http://models.assignment_4_2.package_tracking_system"/>
+  <ns1:parameter name="allowedMethods" value="getParcels addParcel saveParcel getParcel"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="ParcelWSImpl"/>
   <ns1:parameter name="className" value="package_tracking_system.assignment_4_2.web_services.impl.ParcelWSImpl"/>
@@ -48,11 +56,11 @@
   <ns1:parameter name="schemaQualified" value="http://impl.web_services.assignment_4_2.package_tracking_system,http://models.assignment_4_2.package_tracking_system"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://impl.web_services.assignment_4_2.package_tracking_system"/>
   <ns1:parameter name="wsdlServiceElement" value="ParcelWSImplService"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns7:Delivery" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:package_tracking_system.assignment_4_2.models.Delivery" xmlns:ns7="http://models.assignment_4_2.package_tracking_system"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns8:Role" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:package_tracking_system.assignment_4_2.models.Role" xmlns:ns8="http://models.assignment_4_2.package_tracking_system"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns9:City" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:package_tracking_system.assignment_4_2.models.City" xmlns:ns9="http://models.assignment_4_2.package_tracking_system"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns10:Parcel" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:package_tracking_system.assignment_4_2.models.Parcel" xmlns:ns10="http://models.assignment_4_2.package_tracking_system"/>
-  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns11:User" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:package_tracking_system.assignment_4_2.models.User" xmlns:ns11="http://models.assignment_4_2.package_tracking_system"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns8:Delivery" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:package_tracking_system.assignment_4_2.models.Delivery" xmlns:ns8="http://models.assignment_4_2.package_tracking_system"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns9:Role" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:package_tracking_system.assignment_4_2.models.Role" xmlns:ns9="http://models.assignment_4_2.package_tracking_system"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns10:City" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:package_tracking_system.assignment_4_2.models.City" xmlns:ns10="http://models.assignment_4_2.package_tracking_system"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns11:Parcel" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:package_tracking_system.assignment_4_2.models.Parcel" xmlns:ns11="http://models.assignment_4_2.package_tracking_system"/>
+  <ns1:typeMapping deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="" qname="ns12:User" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" type="java:package_tracking_system.assignment_4_2.models.User" xmlns:ns12="http://models.assignment_4_2.package_tracking_system"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

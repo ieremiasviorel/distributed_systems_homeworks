@@ -10,15 +10,23 @@
       <parameter name="className" value="package_tracking_system.assignment_4_2.web_services.impl.ParcelWSImpl"/>
       <parameter name="wsdlPortType" value="ParcelWSImpl"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://impl.web_services.assignment_4_2.package_tracking_system" name="addParcel" qname="operNS:addParcel" soapAction="">
+      <operation xmlns:operNS="http://impl.web_services.assignment_4_2.package_tracking_system" name="saveParcel" qname="operNS:saveParcel" soapAction="">
         <parameter xmlns:pns="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:tns="http://models.assignment_4_2.package_tracking_system" qname="pns:p" type="tns:Parcel"/>
       </operation>
-      <operation xmlns:operNS="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:retNS="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:rtns="http://models.assignment_4_2.package_tracking_system" name="getParcels" qname="operNS:getParcels" returnQName="retNS:getParcelsReturn" returnType="rtns:Parcel" soapAction="">
+      <operation xmlns:operNS="http://impl.web_services.assignment_4_2.package_tracking_system" name="addParcel" qname="operNS:addParcel" soapAction="">
+        <parameter xmlns:pns="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:name" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:description" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:senderName" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:receiverName" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:senderCity" type="tns:string"/>
+        <parameter xmlns:pns="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:receiverCity" type="tns:string"/>
       </operation>
       <operation xmlns:operNS="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:retNS="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:rtns="http://models.assignment_4_2.package_tracking_system" name="getParcel" qname="operNS:getParcel" returnQName="retNS:getParcelReturn" returnType="rtns:Parcel" soapAction="">
         <parameter xmlns:pns="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:id" type="tns:int"/>
       </operation>
-      <parameter name="allowedMethods" value="getParcels addParcel getParcel"/>
+      <operation xmlns:operNS="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:retNS="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns:rtns="http://models.assignment_4_2.package_tracking_system" name="getParcels" qname="operNS:getParcels" returnQName="retNS:getParcelsReturn" returnType="rtns:Parcel" soapAction="">
+      </operation>
+      <parameter name="allowedMethods" value="getParcels addParcel saveParcel getParcel"/>
 
       <typeMapping xmlns:ns="http://models.assignment_4_2.package_tracking_system" qname="ns:Delivery" type="java:package_tracking_system.assignment_4_2.models.Delivery" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
       <typeMapping xmlns:ns="http://models.assignment_4_2.package_tracking_system" qname="ns:Role" type="java:package_tracking_system.assignment_4_2.models.Role" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>

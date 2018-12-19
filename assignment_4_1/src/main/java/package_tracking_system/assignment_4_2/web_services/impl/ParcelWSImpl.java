@@ -8,7 +8,8 @@
 package package_tracking_system.assignment_4_2.web_services.impl;
 
 public interface ParcelWSImpl extends java.rmi.Remote {
-    public void addParcel(package_tracking_system.assignment_4_2.models.Parcel p) throws java.rmi.RemoteException;
-    public package_tracking_system.assignment_4_2.models.Parcel[] getParcels() throws java.rmi.RemoteException;
+    public void saveParcel(package_tracking_system.assignment_4_2.models.Parcel p) throws java.rmi.RemoteException;
+    public void addParcel(java.lang.String name, java.lang.String description, java.lang.String senderName, java.lang.String receiverName, java.lang.String senderCity, java.lang.String receiverCity) throws java.rmi.RemoteException;
     public package_tracking_system.assignment_4_2.models.Parcel getParcel(int id) throws java.rmi.RemoteException;
+    public package_tracking_system.assignment_4_2.models.Parcel[] getParcels() throws java.rmi.RemoteException;
 }

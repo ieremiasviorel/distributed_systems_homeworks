@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
 			}
 		} else {
 			response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-			response.sendRedirect("/login");
+			response.sendRedirect("assignment_4_1/");
 		}
 	}
 }

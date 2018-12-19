@@ -1,11 +1,10 @@
 package package_tracking_system.assignment_4_1.daos.impl;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -41,10 +40,10 @@ public class CityDAOImpl implements CityDAO {
 	public City find(String name) {
 		EntityManager em = emf.createEntityManager();
 
-		Map<String, Object> properties = new HashMap<String, Object>();
-		properties.put("name", name);
+		Query query = em.createQuery("SELECT c FROM City c WHERE c.name = :name");
+		query.setParameter("name", name);
 
-		City city = em.find(City.class, properties);
+		City city = (City) query.getSingleResult();
 		em.close();
 
 		return city;

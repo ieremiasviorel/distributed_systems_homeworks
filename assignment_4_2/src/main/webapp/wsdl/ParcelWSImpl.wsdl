@@ -5,25 +5,30 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://impl.web_services.assignment_4_2.package_tracking_system" xmlns="http://www.w3.org/2001/XMLSchema">
    <import namespace="http://models.assignment_4_2.package_tracking_system"/>
-   <element name="addParcel">
+   <element name="saveParcel">
     <complexType>
      <sequence>
       <element name="p" type="tns1:Parcel"/>
      </sequence>
     </complexType>
    </element>
-   <element name="addParcelResponse">
+   <element name="saveParcelResponse">
     <complexType/>
    </element>
-   <element name="getParcels">
-    <complexType/>
-   </element>
-   <element name="getParcelsResponse">
+   <element name="addParcel">
     <complexType>
      <sequence>
-      <element maxOccurs="unbounded" name="getParcelsReturn" type="tns1:Parcel"/>
+      <element name="name" type="xsd:string"/>
+      <element name="description" type="xsd:string"/>
+      <element name="senderName" type="xsd:string"/>
+      <element name="receiverName" type="xsd:string"/>
+      <element name="senderCity" type="xsd:string"/>
+      <element name="receiverCity" type="xsd:string"/>
      </sequence>
     </complexType>
+   </element>
+   <element name="addParcelResponse">
+    <complexType/>
    </element>
    <element name="getParcel">
     <complexType>
@@ -36,6 +41,16 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="getParcelReturn" type="tns1:Parcel"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getParcels">
+    <complexType/>
+   </element>
+   <element name="getParcelsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getParcelsReturn" type="tns1:Parcel"/>
      </sequence>
     </complexType>
    </element>
@@ -100,6 +115,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="saveParcelRequest">
+
+      <wsdl:part element="impl:saveParcel" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:message name="getParcelsRequest">
 
       <wsdl:part element="impl:getParcels" name="parameters">
@@ -132,7 +155,27 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
+   <wsdl:message name="saveParcelResponse">
+
+      <wsdl:part element="impl:saveParcelResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
    <wsdl:portType name="ParcelWSImpl">
+
+      <wsdl:operation name="saveParcel">
+
+         <wsdl:input message="impl:saveParcelRequest" name="saveParcelRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:saveParcelResponse" name="saveParcelResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
 
       <wsdl:operation name="addParcel">
 
@@ -141,18 +184,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:addParcelResponse" name="addParcelResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getParcels">
-
-         <wsdl:input message="impl:getParcelsRequest" name="getParcelsRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getParcelsResponse" name="getParcelsResponse">
 
        </wsdl:output>
 
@@ -170,11 +201,41 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="getParcels">
+
+         <wsdl:input message="impl:getParcelsRequest" name="getParcelsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getParcelsResponse" name="getParcelsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
    </wsdl:portType>
 
    <wsdl:binding name="ParcelWSImplSoapBinding" type="impl:ParcelWSImpl">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="saveParcel">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="saveParcelRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="saveParcelResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
 
       <wsdl:operation name="addParcel">
 
@@ -194,24 +255,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getParcels">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getParcelsRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getParcelsResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="getParcel">
 
          <wsdlsoap:operation soapAction=""/>
@@ -223,6 +266,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="getParcelResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getParcels">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getParcelsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getParcelsResponse">
 
             <wsdlsoap:body use="literal"/>
 

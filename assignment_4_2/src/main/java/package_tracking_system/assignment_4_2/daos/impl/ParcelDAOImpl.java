@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
 import package_tracking_system.assignment_4_2.daos.ParcelDAO;
@@ -19,8 +20,13 @@ public class ParcelDAOImpl implements ParcelDAO {
 	public void save(Parcel parcel) {
 		EntityManager em = emf.createEntityManager();
 
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		
+		em.persist(parcel.getDelivery());
 		em.persist(parcel);
-
+		
+		tx.commit();
 		em.close();
 	}
 
