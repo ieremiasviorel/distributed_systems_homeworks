@@ -19,6 +19,11 @@ public class ParcelServiceImpl implements ParcelService {
 		this.userDAO = new UserDAOImpl();
 		this.packageDAO = new ParcelDAOImpl();
 	}
+
+	@Override
+	public Parcel getById(Integer id) {
+		return this.packageDAO.find(id);
+	}
 	
 	@Override
 	public List<Parcel> getBySender(String senderUsername) {

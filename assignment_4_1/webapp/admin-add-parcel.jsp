@@ -23,16 +23,24 @@ h1 {
 form button {
 	width: 100%;
 }
+h1 ~ button {
+	float: right;
+	margin-left: 20px;
+}
 </style>
 </head>
 <body>
 	<div class="container">
 		<div>
 			<h1>Add Parcel</h1>
-			<button style="float: right" type="button" class="btn btn-info">Logout</button>
+			<button type="button" class="btn btn-secondary"
+				onclick="location.href = 'http://localhost:8090/assignment_4_1/admin'">Back</button>
+			<button type="button" class="btn btn-info"
+				onclick="location.href = 'http://localhost:8090/assignment_4_1/'">Logout</button>
 		</div>
 	
 		<form action="" method="post" autocomplete="off">
+			
 			<div class="form-group">
 		    	<label for="inputName">Name</label>
 		    	<input type="text" name="name" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter name">

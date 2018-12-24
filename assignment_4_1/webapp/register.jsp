@@ -24,6 +24,8 @@ button {
 	<div class="card">
 		<form action="" method="post" autocomplete="off">
 		
+			<h2>Register</h2>
+		
 			<div class="form-group">
 		    	<label for="inputFullname">Full name</label>
 		    	<input type="text" name="fullname" class="form-control" id="inputFullname" aria-describedby="fullnameHelp" placeholder="Enter full name">

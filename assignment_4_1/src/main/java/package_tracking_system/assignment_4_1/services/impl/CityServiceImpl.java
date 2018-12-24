@@ -16,6 +16,11 @@ public class CityServiceImpl implements CityService {
 	}
 	
 	@Override
+	public City getCityById(Integer id) {
+		return this.cityDAO.find(id);
+	}
+	
+	@Override
 	public City getCityByName(String name) {
 		return this.cityDAO.find(name);
 	}

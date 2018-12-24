@@ -1,8 +1,6 @@
 package package_tracking_system.assignment_4_2.daos.impl;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

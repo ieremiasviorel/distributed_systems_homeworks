@@ -17,7 +17,6 @@ import package_tracking_system.assignment_4_1.services.ParcelService;
 import package_tracking_system.assignment_4_1.services.impl.ParcelServiceImpl;
 
 @WebServlet("/client")
-//@ServletSecurity(value = @HttpConstraint(rolesAllowed = { "CLIENT" }))
 public class ClientHomeServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 5575507490396958636L;

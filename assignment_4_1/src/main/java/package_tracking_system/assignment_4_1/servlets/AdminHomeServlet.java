@@ -17,7 +17,6 @@ import package_tracking_system.assignment_4_2.web_services.impl.ParcelWSImpl;
 import package_tracking_system.assignment_4_2.web_services.impl.ParcelWSImplServiceLocator;
 
 @WebServlet("/admin")
-//@ServletSecurity(value = @HttpConstraint(rolesAllowed = { "ADMIN" }))
 public class AdminHomeServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 5575507490396958636L;

@@ -24,14 +24,26 @@ h1 {
 .table {
 	width: 100%;
 }
+tbody tr {
+	cursor: pointer;
+}
 </style>
+<script>
+var dataType='html';
+$('tr').click(function(){        
+   $.get('/assignment_4_1/client/parcel-details', { id: $(this).data('parcel_id') }, function(response){
+       /* do something with response be it html, xml or JSON response*/
+   }, dataType)
+});
+</script>
 </head>
 <body>
 
 	<div class="container">
 		<div>
 			<h1>Welcome CLIENT!</h1>
-			<button style="float: right" type="button" class="btn btn-info">Logout</button>
+			<button style="float: right" type="button" class="btn btn-info"
+				onclick="location.href = 'http://localhost:8090/assignment_4_1/'">Logout</button>
 		</div>
 		
 		<table class="table table-striped table-bordered table-hover">
@@ -48,7 +60,8 @@ h1 {
 			</thead>
 			<tbody>
 				<c:forEach items="${clientPackages}" var="clientPackage">
-					<tr>
+					<tr data-parcel_id="${clientPackage.id}"
+					onclick="$.get('/assignment_4_1/client/parcel-details', { id: $(this).data('parcel_id') }, function(response){  $('div').html(response) }, dataType)">
 						<td>${clientPackage.name}</td>
 						<td>${clientPackage.description}</td>
 						<td>${clientPackage.sender.fullName}</td>

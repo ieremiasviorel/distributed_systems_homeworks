@@ -24,6 +24,9 @@ h1 {
 .table {
 	width: 100%;
 }
+tbody tr {
+	cursor: pointer;
+}
 </style>
 </head>
 <body>
@@ -31,7 +34,8 @@ h1 {
 	<div class="container">
 		<div>
 			<h1>Welcome ADMIN!</h1>
-			<button style="float: right" type="button" class="btn btn-info">Logout</button>
+			<button style="float: right" type="button" class="btn btn-info"
+				onclick="location.href = 'http://localhost:8090/assignment_4_1/'">Logout</button>
 		</div>
 		
 		<table class="table table-striped table-bordered table-hover">

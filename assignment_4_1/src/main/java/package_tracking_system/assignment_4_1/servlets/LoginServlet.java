@@ -16,27 +16,17 @@ import package_tracking_system.assignment_4_1.services.UserService;
 import package_tracking_system.assignment_4_1.services.impl.UserServiceImpl;
 
 @WebServlet("/")
-//@ServletSecurity(value = @HttpConstraint(rolesAllowed = { "CLIENT", "ADMIN" }), httpMethodConstraints = {
-//		@HttpMethodConstraint(value = "GET", rolesAllowed = { "CLIENT", "ADMIN" }) })
 public class LoginServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 2094807164771303725L;
 
 	private UserService userService;
-	
+
 	@Override
 	public void init() {
 		this.userService = new UserServiceImpl();
 	}
-	
-//	@Override
-//	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		if (request.isUserInRole("ADMIN"))
-//			response.sendRedirect("admin");
-//		else if (request.isUserInRole("CLIENT"))
-//			response.sendRedirect("client");
-//	}
-	
+
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/login.jsp");
@@ -58,7 +48,7 @@ public class LoginServlet extends HttpServlet {
 			session.setMaxInactiveInterval(30 * 60);
 			if (grantedAuthority.getName().equals("ADMIN")) {
 				response.sendRedirect("/assignment_4_1/admin");
-			} else if (grantedAuthority.getName().equals("CLIENT")) { 
+			} else if (grantedAuthority.getName().equals("CLIENT")) {
 				response.sendRedirect("/assignment_4_1/client");
 			}
 		} else {
