@@ -26,15 +26,4 @@ public class TaxServiceImpl implements ITaxService {
 			sum = 290;
 		return c.getEngineCapacity() / 200.0 * sum;
 	}
-
-//	public static void main(String[] args) {
-//		try {
-//			Naming.rebind("taxService", new TaxServiceImpl());
-//			System.err.println("Server ready");
-//
-//		} catch (Exception e) {
-//			System.err.println("Server exception: " + e.toString());
-//			e.printStackTrace();
-//		}
-//	}
 }

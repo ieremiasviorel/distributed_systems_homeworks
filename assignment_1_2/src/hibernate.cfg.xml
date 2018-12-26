@@ -30,6 +30,7 @@
 		</property>
 
 		<property name="show_sql">true</property>
+		
 		<property name="format_sql">true</property>
 		
 		<mapping class="com.flight_management_system.business_logic.entities.User"/>

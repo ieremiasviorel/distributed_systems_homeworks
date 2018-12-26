@@ -22,15 +22,4 @@ public class PriceServiceImpl implements IPriceService {
 			return 0;
 		}
 	}
-
-//	public static void main(String[] args) {
-//		try {
-//			Naming.rebind("priceService", new PriceServiceImpl());
-//			System.err.println("Server ready");
-//
-//		} catch (Exception e) {
-//			System.err.println("Server exception: " + e.toString());
-//			e.printStackTrace();
-//		}
-//	}
 }
